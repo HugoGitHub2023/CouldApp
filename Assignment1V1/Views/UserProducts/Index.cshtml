@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Assignment1V1.Models.UserProducts>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Course.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course.Description)
+            </th>
+            @if (User.IsInRole("Admin"))
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.User.Email)
+                </th>
+            }
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.Description)
+                </td>
+                 @if (User.IsInRole("Admin"))
+            {
+                <th>
+                        @Html.DisplayFor(modelItem => item.User.Email)
+                </th>
+            }
+                <td>
+                    @Html.ActionLink("Cancel", "Delete", new { userId = item.UserId, courseId = item.CourseId})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

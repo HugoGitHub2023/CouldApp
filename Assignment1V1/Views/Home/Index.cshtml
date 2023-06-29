@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Assignment1V1.Models.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Excel Courses for everyone</h1>
+</div>
+<div>
+    <p>
+        Welcome to this Microsoft Excel courses, here you can learn Excel from scratch to an expert level.
+        We have a variety of courses that you can take, depending on your study level and your purposes
+        of learning.
+    </p>
+    <p>
+        We are a small group of Actuaries with a vast experience in Excel with applications in 
+        Statistic, Finance and Insurance, so we have a wide range of knowledge, recommendations and 
+        tips that would love to share with you.
+        We are also experienced in teaching so we have the tools to guide you trough your new learning 
+        adventure and accompany among your personal journey.
+    </p>
+    <p>
+        The courses we offer at this time are the following ones:
+    </p>
+
+    <table>
+
+        @foreach(var item in Model)
+        {
+            <tr>
+                <th>@item.Name</th>
+            </tr>
+        }
+    </table>
+</div>
